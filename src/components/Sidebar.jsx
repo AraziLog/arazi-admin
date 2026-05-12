@@ -79,7 +79,8 @@ export default function Sidebar({ activePage, onNavigate, isOpen }) {
           }
 
           const isActive  = activePage === item.id
-          const clickable = ['dashboard','pos','shipments','quotes','carriers','calculator','webhooks','profile'].includes(item.id)
+          
+const clickable = ['dashboard','pos','customers','shipments','quotes','carriers','calculator','webhooks','profile'].includes(item.id)
                     return (
             <div
               key={item.id}
