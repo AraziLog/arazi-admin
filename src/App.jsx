@@ -8,6 +8,7 @@ import Calculator from './pages/Calculator'
 import Carriers from './pages/Carriers'
 import WebhookLog from './pages/WebhookLog'
 import Profile from './pages/Profile'
+import PointOfSale from './pages/PointOfSale'
 import Login from './pages/Login'
 import { getUser, clearAuth } from './services/api'
 
@@ -16,6 +17,7 @@ export const useAuth = () => useContext(AuthCtx)
 
 const PAGES = {
   dashboard: Dashboard,
+  pos:       PointOfSale,
   shipments: Shipments,
   quotes:    Quotes,
   calculator:Calculator,
