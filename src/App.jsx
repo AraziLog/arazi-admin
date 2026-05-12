@@ -10,11 +10,9 @@ import WebhookLog from './pages/WebhookLog'
 import Login from './pages/Login'
 import { getUser, clearAuth } from './services/api'
 
-// ── Auth Context ──────────────────────────────────────────────────────────────
 export const AuthCtx = createContext(null)
 export const useAuth = () => useContext(AuthCtx)
 
-// ── App Router ────────────────────────────────────────────────────────────────
 const PAGES = {
   dashboard: Dashboard,
   shipments: Shipments,
@@ -25,23 +23,15 @@ const PAGES = {
 }
 
 export default function App() {
-  const [user, setUser]       = useState(getUser())
-  const [page, setPage]       = useState('dashboard')
+  const [user, setUser]             = useState(getUser())
+  const [page, setPage]             = useState('dashboard')
   const [pageParams, setPageParams] = useState({})
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [notification, setNotification] = useState(null)
 
-  const navigate = (p, params = {}) => {
-    setPage(p)
-    setPageParams(params)
-  }
-
-  const logout = () => {
-    clearAuth()
-    setUser(null)
-  }
-
-  const notify = (msg, type = 'success') => {
+  const navigate = (p, params = {}) => { setPage(p); setPageParams(params) }
+  const logout   = () => { clearAuth(); setUser(null) }
+  const notify   = (msg, type = 'success') => {
     setNotification({ msg, type })
     setTimeout(() => setNotification(null), 3500)
   }
@@ -58,35 +48,53 @@ export default function App() {
 
   return (
     <AuthCtx.Provider value={{ user, setUser, logout, notify, navigate }}>
-      <div style={{ display:'flex', height:'100vh', overflow:'hidden', background:'var(--bg)' }}>
+      <div style={{
+        display: 'flex',
+        height: '100vh',
+        width: '100vw',
+        overflow: 'hidden',
+        background: 'var(--bg)',
+      }}>
         <Sidebar
           activePage={page}
           onNavigate={navigate}
           isOpen={sidebarOpen}
           onToggle={() => setSidebarOpen(v => !v)}
         />
-        <div style={{ flex:1, display:'flex', flexDirection:'column', overflow:'hidden', minWidth:0 }}>
+        <div style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          overflow: 'hidden',
+          minWidth: 0,
+          width: '100%',
+        }}>
           <TopBar
             page={page}
             user={user}
             onLogout={logout}
             onToggleSidebar={() => setSidebarOpen(v => !v)}
           />
-          <main style={{ flex:1, overflow:'auto', padding:'24px' }}>
+          <main style={{
+            flex: 1,
+            overflow: 'auto',
+            padding: '24px 28px',
+            width: '100%',
+            boxSizing: 'border-box',
+          }}>
             <PageComponent params={pageParams} onNavigate={navigate} />
           </main>
         </div>
       </div>
 
-      {/* Toast notification */}
       {notification && (
         <div style={{
-          position:'fixed', bottom:24, right:24, zIndex:9999,
+          position: 'fixed', bottom: 24, right: 24, zIndex: 9999,
           background: notification.type === 'error' ? 'var(--danger)' : '#0f172a',
-          color:'#fff', padding:'12px 20px', borderRadius:'var(--radius)',
-          boxShadow:'var(--shadow-lg)', fontSize:'13px', fontWeight:500,
-          animation:'fadeUp .2s ease',
-          display:'flex', alignItems:'center', gap:10, maxWidth:360,
+          color: '#fff', padding: '12px 20px', borderRadius: 'var(--radius)',
+          boxShadow: 'var(--shadow-lg)', fontSize: '13px', fontWeight: 500,
+          animation: 'fadeUp .2s ease',
+          display: 'flex', alignItems: 'center', gap: 10, maxWidth: 360,
         }}>
           <span>{notification.type === 'error' ? '✗' : '✓'}</span>
           {notification.msg}
