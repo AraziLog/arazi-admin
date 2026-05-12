@@ -18,7 +18,7 @@ export default function Login({ onLogin }) {
       <div style={{ position:'absolute', inset:0, opacity:.04, backgroundImage:'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize:'28px 28px' }}/>
       <div style={{ width:420, background:'rgba(255,255,255,.05)', border:'1px solid rgba(255,255,255,.1)', borderRadius:20, padding:40, backdropFilter:'blur(20px)', boxShadow:'0 25px 50px rgba(0,0,0,.4)', position:'relative', animation:'fadeUp .4s ease' }}>
         <div style={{ textAlign:'center', marginBottom:32 }}>
-          <div style={{ width:56, height:56, borderRadius:16, margin:'0 auto 16px', background:'linear-gradient(135deg, #1a56db, #E85D04)', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:'var(--font-display)', fontWeight:800, color:'#fff', fontSize:20 }}>AL</div>
+          <div style={{ width:56, height:56, borderRadius:16, margin:'0 auto 16px', background:'rgba(255,255,255,.08)', display:'flex', alignItems:'center', justifyContent:'center', overflow:'hidden' }><img src="https://s3.wasabisys.com/sethwan-logistics/public/c64f2663-c9dc-4c61-a5da-a40ebb9c613e/logo/whatsapp-image-2026-01-07-at-123541ef392e90-37wHscs4zNr6dHT0lbjRZ98OvMR-37x1eORZaBMBWOC3ZtBsk7FgLPW.jpg" alt="ARAZI Logistics" style={{width:'100%',height:'100%',objectFit:'contain'}}/></div>
           <div style={{ fontFamily:'var(--font-display)', fontWeight:800, fontSize:22, color:'#fff' }}>ARAZI Logistics</div>
           <div style={{ color:'rgba(255,255,255,.4)', fontSize:13, marginTop:4 }}>Admin Panel</div>
         </div>

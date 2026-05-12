@@ -1,5 +1,17 @@
 import React, { useState } from 'react'
 
+// ── Logo configuration ────────────────────────────────────────────────────────
+// Option 1: Use a URL (paste your image URL here)
+// const LOGO_URL = 'https://your-site.com/logo.png'
+//
+// Option 2: Import a local file from /src/assets/
+// import logoSrc from '../assets/logo.png'
+// const LOGO_URL = logoSrc
+//
+// Option 3: Use your live site logo directly
+const LOGO_URL = 'https://s3.wasabisys.com/sethwan-logistics/public/c64f2663-c9dc-4c61-a5da-a40ebb9c613e/logo/whatsapp-image-2026-01-07-at-123541ef392e90-37wHscs4zNr6dHT0lbjRZ98OvMR-37x1eORZaBMBWOC3ZtBsk7FgLPW.jpg'
+
+
 const NAV = [
   { section: 'MAIN' },
   { id:'dashboard',  label:'Dashboard',    icon: <DashIcon /> },
@@ -33,21 +45,38 @@ export default function Sidebar({ activePage, onNavigate, isOpen }) {
     }}>
       {/* Logo */}
       <div style={{
-        padding: '20px 16px',
+        padding: '14px 16px',
         display: 'flex',
         alignItems: 'center',
         gap: 10,
         borderBottom: '1px solid rgba(255,255,255,.06)',
         minHeight: 64,
       }}>
-        <div style={{
-          width: 36, height: 36, borderRadius: 10,
-          background: 'linear-gradient(135deg, #1a56db, #E85D04)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          flexShrink: 0,
-          fontFamily: 'var(--font-display)',
-          fontWeight: 800, color: '#fff', fontSize: 14,
-        }}>AL</div>
+        {/* Logo image — replace src with your logo URL or import */}
+        {LOGO_URL ? (
+          <img
+            src={LOGO_URL}
+            alt="ARAZI Logistics"
+            style={{
+              height: isOpen ? 42 : 32,
+              width: 'auto',
+              maxWidth: isOpen ? 160 : 32,
+              objectFit: 'contain',
+              flexShrink: 0,
+              transition: 'all 250ms ease',
+              filter: 'brightness(0) invert(1)',
+            }}
+          />
+        ) : (
+          <div style={{
+            width: 36, height: 36, borderRadius: 10,
+            background: 'linear-gradient(135deg, #1a56db, #E85D04)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            flexShrink: 0,
+            fontFamily: 'var(--font-display)',
+            fontWeight: 800, color: '#fff', fontSize: 14,
+          }}>AL</div>
+        )}
         {isOpen && (
           <div>
             <div style={{ color:'#fff', fontFamily:'var(--font-display)', fontWeight:700, fontSize:14, lineHeight:1.2 }}>ARAZI Lo...</div>
