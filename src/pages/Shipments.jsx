@@ -37,7 +37,7 @@ export default function Shipments() {
       <button
   onClick={() => onNavigate('addshipment')}
   style={{ background:'var(--primary)', color:'#fff', border:'none', padding:'10px 20px', borderRadius:'var(--radius)', fontSize:13, fontWeight:600, cursor:'pointer' }}
->+ Add Shipment</button>
+onClick={() => onNavigate("addshipment")}>+ Add Shipment</button>
       </div>
 
       <div className="card" style={{ padding:'14px 18px', marginBottom:18, display:'flex', gap:12, alignItems:'center', flexWrap:'wrap' }}>
