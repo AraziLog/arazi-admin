@@ -13,6 +13,9 @@ import Customers from './pages/Customers'
 import AddShipment from './pages/AddShipment' 
 import Login from './pages/Login'
 import { getUser, clearAuth } from './services/api'
+import Packages   from './pages/Packages'
+import Receivals  from './pages/Receivals'
+import UnkPackage from './pages/UnkPackage'
 
 export const AuthCtx = createContext(null)
 export const useAuth = () => useContext(AuthCtx)
@@ -28,6 +31,9 @@ const PAGES = {
   profile:   Profile,
   customers: Customers,
  addshipment: AddShipment,
+packages:   Packages,
+receivals:  Receivals,
+unkpackage: UnkPackage,
 }
 
 export default function App() {
