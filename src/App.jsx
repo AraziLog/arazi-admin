@@ -10,6 +10,7 @@ import WebhookLog from './pages/WebhookLog'
 import Profile from './pages/Profile'
 import PointOfSale from './pages/PointOfSale'
 import Customers from './pages/Customers'
+import AddShipment from './pages/AddShipment' 
 import Login from './pages/Login'
 import { getUser, clearAuth } from './services/api'
 
@@ -26,6 +27,7 @@ const PAGES = {
   webhooks:  WebhookLog,
   profile:   Profile,
   customers: Customers,
+ addshipment: AddShipment,
 }
 
 export default function App() {
