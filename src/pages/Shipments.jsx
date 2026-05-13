@@ -6,7 +6,7 @@ const STATUS_COLOR = { pending:'#c27803',in_transit:'#1a56db',customs:'#7e3af2',
 const STATUS_LABEL = { pending:'Pending',in_transit:'In Transit',customs:'Customs',out_for_delivery:'Out for Delivery',delivered:'Delivered',exception:'Exception' }
 const STATUSES = Object.keys(STATUS_LABEL)
 
-export default function Shipments() {
+export default function Shipments({ onNavigate }) {
   const { notify } = useAuth()
   const [shipments] = useState(MOCK_SHIPMENTS)
   const [filter, setFilter] = useState('')
@@ -34,7 +34,12 @@ export default function Shipments() {
           <h1 style={{ fontFamily:'var(--font-display)', fontSize:24, fontWeight:800, margin:0 }}>Shipments</h1>
           <p style={{ color:'var(--text-3)', fontSize:13, marginTop:4 }}>{filtered.length} shipments found</p>
         </div>
-    <button onClick={() => onNavigate('addshipment')} style={{ background:'var(--primary)', color:'#fff', border:'none', padding:'10px 20px', borderRadius:'var(--radius)', fontSize:13, fontWeight:600, cursor:'pointer' }}>+ Add Shipment</button>
+        <button
+          onClick={() => onNavigate('addshipment')}
+          style={{ background:'var(--primary)', color:'#fff', border:'none', padding:'10px 20px', borderRadius:'var(--radius)', fontSize:13, fontWeight:600, cursor:'pointer' }}
+        >
+          + Add Shipment
+        </button>
       </div>
 
       <div className="card" style={{ padding:'14px 18px', marginBottom:18, display:'flex', gap:12, alignItems:'center', flexWrap:'wrap' }}>
@@ -47,7 +52,7 @@ export default function Shipments() {
         </div>
         <div style={{ display:'flex', gap:6, flexWrap:'wrap' }}>
           {[['','All'],...STATUSES.map(s=>[s,STATUS_LABEL[s]])].map(([v,l])=>(
-            <button key={v} onClick={()=>setFilter(v)} style={{ padding:'5px 14px', borderRadius:99, fontSize:12, fontWeight:600, border:`1px solid ${filter===v&&v?STATUS_COLOR[v]||'var(--primary)':'var(--border)'}`, background:filter===v?(v?STATUS_COLOR[v]+'18':'var(--primary-soft)'):'transparent', color:filter===v?(v?STATUS_COLOR[v]:'var(--primary)'):'var(--text-2)', cursor:'pointer' }}>{l}</button>
+            <button key={v} onClick={()=>setFilter(v)} style={{ padding:'5px 14px', borderRadius:99, fontSize:12, fontWeight:600, border:`1px solid ${filter===v&&v?STATUS_COLOR[v]:'var(--border)'}`, background:filter===v?(v?STATUS_COLOR[v]+'18':'var(--primary-soft)'):'transparent', color:filter===v?(v?STATUS_COLOR[v]:'var(--primary)'):'var(--text-2)', cursor:'pointer' }}>{l}</button>
           ))}
         </div>
       </div>
