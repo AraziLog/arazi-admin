@@ -34,10 +34,7 @@ export default function Shipments() {
           <h1 style={{ fontFamily:'var(--font-display)', fontSize:24, fontWeight:800, margin:0 }}>Shipments</h1>
           <p style={{ color:'var(--text-3)', fontSize:13, marginTop:4 }}>{filtered.length} shipments found</p>
         </div>
-      <button
-  onClick={() => onNavigate('addshipment')}
-  style={{ background:'var(--primary)', color:'#fff', border:'none', padding:'10px 20px', borderRadius:'var(--radius)', fontSize:13, fontWeight:600, cursor:'pointer' }}
-onClick={() => onNavigate("addshipment")}>+ Add Shipment</button>
+    <button onClick={() => onNavigate('addshipment')} style={{ background:'var(--primary)', color:'#fff', border:'none', padding:'10px 20px', borderRadius:'var(--radius)', fontSize:13, fontWeight:600, cursor:'pointer' }}>+ Add Shipment</button>
       </div>
 
       <div className="card" style={{ padding:'14px 18px', marginBottom:18, display:'flex', gap:12, alignItems:'center', flexWrap:'wrap' }}>
