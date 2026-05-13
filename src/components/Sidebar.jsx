@@ -7,11 +7,14 @@ const NAV = [
   { id:'dashboard',  label:'Dashboard',    icon: <DashIcon /> },
   { id:'pos',        label:'Point of Sale',icon: <PosIcon /> },
   { id:'customers',  label:'Customers',    icon: <CustIcon /> },
-  { section: 'MANAGEMENT' },
-  { id:'shipments',  label:'Shipments',    icon: <ShipIcon /> },
-  { id:'quotes',     label:'Quotes',       icon: <QuoteIcon /> },
-  { id:'carriers',   label:'Carriers',     icon: <CarrierIcon /> },
-  { id:'calculator', label:'Calculator',   icon: <CalcIcon /> },
+ { section: 'MANAGEMENT' },
+{ id:'packages',   label:'Packages',     icon: <PkgIcon /> },
+{ id:'shipments',  label:'Shipments',    icon: <ShipIcon /> },
+{ id:'receivals',  label:'Receivals',    icon: <RecvIcon /> },
+{ id:'unkpackage', label:'Unk Package',  icon: <UnkIcon /> },
+{ id:'quotes',     label:'Quotes',       icon: <QuoteIcon /> },
+{ id:'carriers',   label:'Carriers',     icon: <CarrierIcon /> },
+{ id:'calculator', label:'Calculator',   icon: <CalcIcon /> },
   { section: 'MONITORING' },
   { id:'webhooks',   label:'Webhooks',     icon: <WebhookIcon />, badge: 'Live' },
   { section: 'MARKETING' },
@@ -80,7 +83,7 @@ export default function Sidebar({ activePage, onNavigate, isOpen }) {
 
           const isActive  = activePage === item.id
           
-const clickable = ['dashboard','pos','customers','shipments','quotes','carriers','calculator','webhooks','profile','addshipment'].includes(item.id)
+const clickable = ['dashboard','pos','customers','packages','shipments','receivals','unkpackage','quotes','carriers','calculator','webhooks','profile','addshipment'].includes(item.id)
                     return (
             <div
               key={item.id}
